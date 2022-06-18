@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Modificar Usuario Rol</title>
+</head>
+
+<body>
+
+	<header th:replace="master/master :: header"> </header>
+
+	<h2>Formulario de Modificar</h2>
+
+	<div class="container">
+		<div>
+			<form th:action="@{/usuariorol/modificar}" method="post"
+				th:object="${ssa}">
+
+				<div class="col-sm-12">
+					<label class="form-label">Id: </label> <input type="text"
+						class="form-control" th:field="*{id}"></input>
+				</div>
+
+
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Nombre: </label> <input
+							type="text" class="form-control" th:field="*{name}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Descripcion: </label> <input
+							type="text" class="form-control" th:field="*{description}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Dia de Inicio: </label> <input
+							type="date" class="form-control" th:field="*{dateStart}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Dia Fin: </label> <input
+							type="date" class="form-control" th:field="*{dateFinish}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Tipo lugar de trabajo: </label> <input
+							type="text" class="form-control" th:field="*{tipolugartrabajo}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Direcion: </label> <input
+							type="text" class="form-control" th:field="*{address}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<label class="form-label">Tipo de empleo: </label> <input
+							type="text" class="form-control" th:field="*{tipoEmpleo}" minlength="3"
+							maxlength="20" required="required"></input>
+					</div>
+				</div>
+				
+
+				<div class="form-group">
+					<label for="distrito">Distrito:</label> <select
+						class="form-select" th:field="*{distrito.id}">
+						<option th:each="ld: ${listaDistritos}" th:value="${ld.id}"
+							th:text="${ld.name}"
+							th:selected="(${ld.id} == *{distrito.id})"></option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="usuario">Empresa:</label> <select class="form-select"
+						th:field="*{empresa.id}">
+						<option th:each="le: ${listaEmpresas}" th:value="${le.id}"
+							th:text="${le.type}" th:selected="(${le.id} == *{empresa.id})"></option>
+					</select>
+
+				</div>
+
+				<div class="col-sm-12">
+					<input type="submit" class="btn btn-dark" value="Actualizar"></input>
+				</div>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+
+	<footer th:replace="master/master :: footer"></footer>
+
+
+</body>
+
+</html>

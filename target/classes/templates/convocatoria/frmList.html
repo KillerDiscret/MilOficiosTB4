@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Lista de Convocatoria</title>
+</head>
+
+<body>
+
+	<header th:replace="master/master :: header"> </header>
+
+	<h2 style="padding-top: 40px; padding-left: 50px;">Formulario de
+		Listar</h2>
+
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+
+				<table class="table table-white">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+							<th>Dia Inicio</th>
+							<th>Dia Fin</th>
+							<th>Tipo lugar de trabajo</th>
+							<th>Direccion</th>
+							<th>Tipo de empleo</th>
+							<th>Distrito</th>
+							<th>Empresa</th>
+							
+
+							<th>Operación</th>
+							<th>Operación</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="c:${listaConvocatorias}">
+							<td th:text="${c.id}"></td>
+							<td th:text="${c.name}"></td>
+							<td th:text="${c.description}"></td>
+							<td th:text="${c.dateStart}"></td>
+							<td th:text="${c.dateFinish}"></td>
+							<td th:text="${c.tipolugartrabajo}"></td>
+							<td th:text="${c.address}"></td>
+							<td th:text="${c.tipoEmpleo}"></td>
+							<td th:text="${c.distrito.name}"></td>
+							<td th:text="${c.empresa.name}"></td>
+
+							<td><a th:href="@{/convocatoria/eliminar?id=}+${c.id}">Eliminar</a></td>
+							<td><a th:href="@{'/convocatoria/irmodificar/'+${c.id}}">Modificar</a></td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<footer th:replace="master/master :: footer"></footer>
+
+
+</body>
+
+</html>
