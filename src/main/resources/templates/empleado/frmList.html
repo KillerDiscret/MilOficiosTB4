@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Lista de Empleados</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"> </header>
+
+	<h2 style="padding-top: 40px; padding-left: 50px;">Formulario de
+		Listar</h2>
+
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+
+				<table class="table table-white">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Dni</th>
+							<th>Teléfono</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Dirección</th>
+							<th>Email</th>
+							<th>Distrito</th>
+
+							<th>OperaciÃ³n</th>
+							<th>OperaciÃ³n</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="e:${listaEmpleados}">
+							<td th:text="${e.id}"></td>
+							<td th:text="${e.fullname}"></td>
+							<td th:text="${e.dni}"></td>
+							<td th:text="${e.phone}"></td>
+							<td th:text="${e.dateBirth}"></td>
+							<td th:text="${e.address}"></td>
+							<td th:text="${e.email}"></td>
+							<td th:text="${e.distrito.name}"></td>
+
+							<td><a th:href="@{/empleado/eliminar?id=}+${e.id}">Eliminar</a></td>
+							<td><a th:href="@{'/empleado/irmodificar/'+${e.id}}">Modificar</a></td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<footer th:replace="master/master :: footer"></footer>
+
+
+
+</body>
+</html>
