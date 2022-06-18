@@ -141,7 +141,15 @@ body, html {
 								<li><a class="dropdown-item" th:href="@{/empleado/listar}">Listar</a></li>
 							</ul></li>
 
-
+						<li class="nav-item dropdown"><a
+							style="color: white !important;" class="nav-link dropdown-toggle"
+							href="#" id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Tipo Notificacion</a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" th:href="@{/tipoNotificacion/nuevo}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/tipoNotificacion/listar}">Listar</a></li>
+							</ul></li>
 
 						<li class="nav-item">
 							<form id="logoutForm" th:action="@{/logout}" method="post">
