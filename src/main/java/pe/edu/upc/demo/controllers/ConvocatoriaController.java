@@ -127,6 +127,4 @@ public class ConvocatoriaController {
 		return "redirect:/convocatoria/listar";
 
 	}
-	
-	
 }
